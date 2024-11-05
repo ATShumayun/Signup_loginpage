@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup-login
+    </title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <div class="buttons">
+        <button id="Signup">Signup</button>
+        <!-- <button id="Login">Login</button> -->
+    </div>
+    <div class="container">
+
+        <div class="Loginimg">
+            <a href=""> <img src="Mobile login-rafiki.png" alt=""></a>
+            
+        </div>
+       
+
+
+        <div class="form-container">
+            <h1>Create an Account</h1>
+            <form action="{% url 'signupurl' %}" method="post">
+                {% csrf_token %}
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="number" placeholder="Phone Number" name="number" required>
+            <input type="password" placeholder="Password" name="pwd" required>
+            
+            <button type="submitForm">REGISTER</button>
+            <a href="{% url 'loginurl' %}" class="login-link">Already have an account? login.</a>
+        </form>
+        </div>
+        <h1>{{msg}}</h1>
+        <!-- <div class="Signupimg">
+            <img src="Signup.png" alt="">
+        </div> -->
+    </div>
+    
+</body>
+
+</html>

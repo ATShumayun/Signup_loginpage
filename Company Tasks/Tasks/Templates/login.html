@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup-login
+    </title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <div class="buttons">
+        <button id="Signup">Login</button>
+        <!-- <button id="Login">Login</button> -->
+    </div>
+    <div class="container">
+
+        
+       
+
+
+        <div class="form-container">
+            <h1>Login</h1>
+            <form action="{% url 'loginurl' %}" method="post">
+                {% csrf_token %}
+                <label for="username" id="text-left">Email :</label>
+                <input type="text" name="email" id="username" placeholder="Type your email" required>
+                <label for="password" id="text-left">Password :</label>
+                <input type="password" name="password" id="password" placeholder="Type your password" required>
+            
+            <button onclick="submitForm()" type="submitForm">LOGIN</button>
+            <a href="{% url 'signupurl' %}" class="login-link">Don't have an account? Signup.</a>
+            {% for msg in messages %}
+                <h3>{{msg}}</h3>
+            {% endfor %}
+                
+        </form>
+        </div>
+
+       
+    </div>
+    
+</body>
+
+</html>
